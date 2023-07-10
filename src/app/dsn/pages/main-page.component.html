@@ -1,0 +1,13 @@
+<h1>dns</h1>
+<hr />
+<div class="row">
+  <!-- onDelete -->
+  <app-dsn-list
+    [characterList]="characters"
+    (onDelete)="onDeleteCharacter($event)"
+  ></app-dsn-list>
+
+  <app-add-character
+    (onNewCharacter)="onNewCharacter($event)"
+  ></app-add-character>
+</div>

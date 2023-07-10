@@ -1,0 +1,24 @@
+<div class="col">
+  <h4>Agregar</h4>
+  <form (ngSubmit)="emitCharacter()" class="row" >
+    <input
+    type="text"
+    [(ngModel)]="character.name"
+    name="name"
+    class="form-control mb-2"
+    placeholder="Nombre"
+    >
+    <input
+    type="text"
+    [(ngModel)]="character.power"
+    name="power"
+    class="form-control mb-2"
+    placeholder="tipo"
+    >
+    <button class="btn btn-primary" type="submit" >
+      Agregar
+    </button>
+
+  </form>
+</div>
+
