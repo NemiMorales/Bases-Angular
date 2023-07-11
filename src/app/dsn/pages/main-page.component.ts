@@ -1,27 +1,21 @@
 import { Component } from '@angular/core';
 import { Character } from '../interfaces/character.interface';
+import { DsnService } from '../services/dsn.service';
 
 @Component({
   selector: 'app-dsn-main-page',
   templateUrl: './main-page.component.html',
 })
 export class MainPageComponent {
-  public characters: Character[] = [
-    {
-      name: '',
-      power: '',
-    },
-    {
-      name: '',
-      power: '',
-    },
-  ];
+  constructor(private dsnService: DsnService) {}
 
-  onNewCharacter(character: Character): void {
-    this.characters.push(character);
+  get characters(): Character[] {
+    return [...this.dsnService.characters];
   }
-
-  onDeleteCharacter(index: number) {
-    this.characters.splice(index);
+  onDeleteCharacter(id: string): void {
+    this.dsnService.deleteCharacterById(id);
+  }
+  onNewCharacter(character: Character): void {
+    this.dsnService.addCharacter(character);
   }
 }
